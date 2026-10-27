@@ -79,13 +79,11 @@ function AuthPage() {
     try {
       if (mode === "signup") {
         await registerAccount({
-          data: {
-            email: trimmedEmail,
-            password,
-            fullName: fullName.trim(),
-            role,
-            companyName: companyName.trim(),
-          },
+          email: trimmedEmail,
+          password,
+          fullName: fullName.trim(),
+          role,
+          companyName: companyName.trim(),
         });
         const signedIn = await signInWithRetry(trimmedEmail, password);
         if (signedIn.error) throw signedIn.error;
